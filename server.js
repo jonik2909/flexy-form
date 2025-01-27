@@ -20,7 +20,6 @@ app.get("/get", (req, res) => {
   res.send(`
     <h1>GET So'rov Qabul Qilindi</h1>
     <ul>${formattedData || "<li>Ma'lumot yuborilmadi</li>"}</ul>
-   
   `);
 });
 
@@ -34,7 +33,6 @@ app.post("/post", (req, res) => {
   res.send(`
     <h1>POST So'rov Qabul Qilindi</h1>
     <ul>${formattedData || "<li>Ma'lumot yuborilmadi</li>"}</ul>
-    
   `);
 });
 
@@ -44,13 +42,11 @@ app.post("/upload", upload.single("file"), (req, res) => {
     res.send(`
       <h1>Rasm Yuklandi</h1>
       <p>Yuklangan rasm nomi: <strong>${req.file.originalname}</strong></p>
-    
     `);
   } else {
     res.status(400).send(`
       <h1>Xatolik</h1>
       <p>Iltimos, rasm faylini yuklang.</p>
-    
     `);
   }
 });
