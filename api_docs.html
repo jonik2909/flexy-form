@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexy Form API Dokumentatsiyasi</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --code-bg: #2d2d2d;
+            --code-text: #f8f8f2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .endpoint {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .endpoint h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #444;
+        }
+
+        .method {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .method.get {
+            background-color: #61affe;
+        }
+
+        .method.post {
+            background-color: #49cc90;
+        }
+
+        .description {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .params {
+            margin-top: 15px;
+        }
+
+        .params h3 {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+        }
+
+        .example {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .test-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #357abd;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🚀 Flexy Form API</h1>
+        <p style="text-align: center; font-size: 1.1em; color: #555;">
+            Oddiy va qulay API servisi. Quyida mavjud bo'lgan barcha endpointlar haqida ma'lumot keltirilgan.
+        </p>
+
+        <div class="test-link">
+            <a href="/test" class="btn">🛠 API'larni Sinash (Test Dashboard)</a>
+        </div>
+
+        <div class="endpoint">
+            <h2><span class="method post">POST</span> /login</h2>
+            <div class="description">Foydalanuvchini tizimga kiritish va autentifikatsiya qilish.</div>
+
+            <div class="params">
+                <h3>Parametrlar (Body - JSON/Form):</h3>
+                <table>
+                    <tr>
+                        <th>Nomi</th>
+                        <th>Turi</th>
+                        <th>Majburiy</th>
+                        <th>Tavsif</th>
+                    </tr>
+                    <tr>
+                        <td><code>username</code></td>
+                        <td>String</td>
+                        <td>Ha</td>
+                        <td>Foydalanuvchi nomi (masalan: admin)</td>
+                    </tr>
+                    <tr>
+                        <td><code>password</code></td>
+                        <td>String</td>
+                        <td>Ha</td>
+                        <td>Parol (masalan: password123)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="params">
+                <h3>Javob (Response):</h3>
+                <div class="example">
+                    // Success<br>
+                    HTML Page with Alert: "Login Muvaffaqiyatli..."<br><br>
+                    // Error<br>
+                    HTML Page with Alert: "Login Xatolik..."
+                </div>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2><span class="method post">POST</span> /upload</h2>
+            <div class="description">Serverga rasm yuklash.</div>
+
+            <div class="params">
+                <h3>Parametrlar (Multipart/Form-data):</h3>
+                <table>
+                    <tr>
+                        <th>Nomi</th>
+                        <th>Turi</th>
+                        <th>Majburiy</th>
+                        <th>Tavsif</th>
+                    </tr>
+                    <tr>
+                        <td><code>file</code></td>
+                        <td>File</td>
+                        <td>Ha</td>
+                        <td>Yuklanadigan rasm fayli</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="params">
+                <h3>Javob (Response):</h3>
+                <div class="example">
+                    // Success<br>
+                    HTML Page showing uploaded image and link.
+                </div>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2><span class="method post">POST</span> /post</h2>
+            <div class="description">Yuborilgan ma'lumotlarni qabul qilish va aks ettirish (Echo).</div>
+
+            <div class="params">
+                <h3>Parametrlar (Body - JSON/Form):</h3>
+                <p>Istalgan key-value juftligi yuborilishi mumkin.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h2><span class="method get">GET</span> /get</h2>
+            <div class="description">GET so'rovi orqali yuborilgan parametrlarni aks ettirish (Echo).</div>
+
+            <div class="params">
+                <h3>Parametrlar (Query String):</h3>
+                <p>Istalgan query parametrlar yuborilishi mumkin (masalan: <code>?id=1&name=test</code>).</p>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Flexy Form API. Barcha huquqlar himoyalangan.
+        </footer>
+    </div>
+
+</body>
+
+</html>
